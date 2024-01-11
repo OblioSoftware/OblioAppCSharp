@@ -137,7 +137,7 @@ class OblioApi
                 result = (JsonObject)node;
             }
             if (result["statusMessage"] is null) {
-                result["statusMessage"] = string.Format("Error! HTTP response status: %d", ((int)response.StatusCode));
+                result["statusMessage"] = string.Format("Error! HTTP response status: {0}", ((int)response.StatusCode));
             }
             throw new Exception(result["statusMessage"]!.ToString());
         }

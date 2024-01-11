@@ -71,14 +71,11 @@ class Program
 
     public static JsonObject GetEnv()
     {
-        try {
-            string jsonString = File.ReadAllText("storage/appsecrets.json");
-            JsonNode? node = JsonNode.Parse(jsonString);
-            if (node != null) {
-                return (JsonObject)node;
-            }
+        string jsonString = File.ReadAllText("storage/appsecrets.json");
+        JsonNode? node = JsonNode.Parse(jsonString);
+        if (node == null) {
+            return new JsonObject();
         }
-        catch (Exception e) { }
-        return new JsonObject();
+        return (JsonObject)node;
     }
 }
