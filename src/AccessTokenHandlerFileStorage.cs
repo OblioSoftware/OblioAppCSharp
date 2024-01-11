@@ -2,7 +2,7 @@
 
 namespace OblioSoftware;
 
-class AccessTokenHandlerFileStorage : AccessTokenHandlerInterface
+class AccessTokenHandlerFileStorage : IAccessTokenHandler
 {
     protected string _filepath = "storage/access_token.json";
 

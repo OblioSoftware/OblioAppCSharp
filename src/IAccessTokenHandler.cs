@@ -2,7 +2,7 @@
 
 namespace OblioSoftware;
 
-interface AccessTokenHandlerInterface
+interface IAccessTokenHandler
 {
     public AccessToken? Get();
 

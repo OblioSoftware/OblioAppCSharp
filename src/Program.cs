@@ -7,8 +7,7 @@ class Program
     public static void Main(string[] args)
     {
         JsonObject env = GetEnv();
-        try
-        {
+        try {
             string jsonString = @"{
                 ""cif"": """",
                 ""client"": {

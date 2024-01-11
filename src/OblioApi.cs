@@ -12,9 +12,9 @@ class OblioApi
     protected string _email     = "";
     protected string _secret    = "";
     protected string _baseURL   = "https://www.oblio.eu";
-    protected AccessTokenHandlerInterface _accessTokenHandler;
+    protected IAccessTokenHandler _accessTokenHandler;
 
-    public OblioApi(string email, string secret, AccessTokenHandlerInterface? accessTokenHandler = null)
+    public OblioApi(string email, string secret, IAccessTokenHandler? accessTokenHandler = null)
     {
         _email = email;
         _secret = secret;
@@ -129,7 +129,6 @@ class OblioApi
     protected void CheckResponse(HttpResponseMessage response)
     {
         if (((int)response.StatusCode) < 200 || ((int)response.StatusCode) >= 300) {
-
             string json = response.Content.ReadAsStringAsync().Result;
             JsonNode? node = JsonNode.Parse(json);
             JsonObject result = new JsonObject();
