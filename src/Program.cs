@@ -71,8 +71,7 @@ class Program
 
     public static JsonObject GetEnv()
     {
-        try
-        {
+        try {
             string jsonString = File.ReadAllText("storage/appsecrets.json");
             JsonNode? node = JsonNode.Parse(jsonString);
             if (node != null) {
