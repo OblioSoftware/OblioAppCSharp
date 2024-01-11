@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json.Nodes;
-using System.Threading.Tasks;
 
 namespace OblioSoftware;
 
@@ -19,10 +15,10 @@ public class AccessToken
         JsonNode? result = JsonNode.Parse(json);
         if (result != null)
         {
-            access_token = (string)(result["access_token"] ?? "");
+            access_token = (result["access_token"]!).ToString();
             expires_in = Int32.Parse((result["expires_in"] ?? "0").ToString());
             request_time = Int32.Parse((result["request_time"] ?? "0").ToString());
-            token_type = (string)(result["token_type"] ?? "");
+            token_type = (result["token_type"]!).ToString();
         }
         return this;
     }
